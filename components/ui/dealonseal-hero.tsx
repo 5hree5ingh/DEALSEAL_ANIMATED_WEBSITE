@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 /* ──────────────────────────────────────────────
@@ -46,7 +47,7 @@ const Lightning: React.FC<{ hue?: number; speed?: number; intensity?: number; si
     gl.linkProgram(prog); gl.useProgram(prog);
     const buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
     const ap = gl.getAttribLocation(prog, "aPosition");
     gl.enableVertexAttribArray(ap); gl.vertexAttribPointer(ap, 2, gl.FLOAT, false, 0, 0);
     const uRes = gl.getUniformLocation(prog, "iResolution");
@@ -174,10 +175,15 @@ const HeroSection: React.FC = () => {
             className="flex items-center gap-3"
           >
             {/* Logo */}
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/30">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <div className="w-9 h-9 flex items-center justify-center drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">
+              <Image
+                src="/LOGO2.png"
+                alt="DEALonSEAL Logo"
+                width={36}
+                height={36}
+                className="object-contain"
+                priority
+              />
             </div>
             <span className="text-xl font-bold tracking-tight">
               DEAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">on</span>SEAL
@@ -192,7 +198,7 @@ const HeroSection: React.FC = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * i + 0.3 }}
-                className="text-sm text-white/70 hover:text-white transition-colors duration-200"
+                className="text-sm text-white hover:text-blue-300 transition-colors duration-200"
               >
                 {link}
               </motion.a>
@@ -243,16 +249,7 @@ const HeroSection: React.FC = () => {
 
       {/* Hero Content */}
       <div className="relative z-20 flex flex-col items-center justify-center flex-1 px-6 text-center pt-32 pb-36">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-blue-300 backdrop-blur-sm"
-        >
-          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-          Digital Notary for Device Sales
-        </motion.div>
+
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -285,7 +282,7 @@ const HeroSection: React.FC = () => {
         >
           <button className="group flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full font-semibold text-base hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 hover:scale-105">
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
             </svg>
             App Store
             <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -294,7 +291,7 @@ const HeroSection: React.FC = () => {
           </button>
           <button className="group flex items-center gap-3 px-7 py-3.5 bg-white/5 border border-white/10 rounded-full font-semibold text-base hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105">
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3.18 23.76c.31.17.66.24 1.01.19l12.89-7.42-2.99-3-10.91 10.23zM.14 1.96C.05 2.22 0 2.51 0 2.84v18.32c0 .33.06.62.16.87l.09.08 10.26-10.26v-.24L.23 1.87l-.09.09zM20.96 8.58l-2.94-1.7-3.35 3.35 3.35 3.35 2.97-1.71c.85-.49.85-1.29-.03-1.29zM4.19.05L17.08 7.47l-2.99 2.99L4.19.05z"/>
+              <path d="M3.18 23.76c.31.17.66.24 1.01.19l12.89-7.42-2.99-3-10.91 10.23zM.14 1.96C.05 2.22 0 2.51 0 2.84v18.32c0 .33.06.62.16.87l.09.08 10.26-10.26v-.24L.23 1.87l-.09.09zM20.96 8.58l-2.94-1.7-3.35 3.35 3.35 3.35 2.97-1.71c.85-.49.85-1.29-.03-1.29zM4.19.05L17.08 7.47l-2.99 2.99L4.19.05z" />
             </svg>
             Google Play
           </button>
@@ -617,10 +614,8 @@ const CertificatePreview: React.FC = () => {
                     <div className="text-xs font-semibold text-blue-100 tracking-widest uppercase mb-1">Digital Sale Certificate</div>
                     <div className="text-white font-bold text-lg">DEALonSEAL</div>
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
+                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center p-1">
+                    <Image src="/LOGO2.png" alt="DEALonSEAL" width={40} height={40} className="object-contain" />
                   </div>
                 </div>
               </div>
@@ -842,7 +837,7 @@ const CtaSection: React.FC = () => {
               className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full font-semibold text-base hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
               </svg>
               Download on App Store
             </motion.button>
@@ -852,7 +847,7 @@ const CtaSection: React.FC = () => {
               className="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full font-semibold text-base hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3.18 23.76c.31.17.66.24 1.01.19l12.89-7.42-2.99-3-10.91 10.23zM.14 1.96C.05 2.22 0 2.51 0 2.84v18.32c0 .33.06.62.16.87l.09.08 10.26-10.26v-.24L.23 1.87l-.09.09zM20.96 8.58l-2.94-1.7-3.35 3.35 3.35 3.35 2.97-1.71c.85-.49.85-1.29-.03-1.29zM4.19.05L17.08 7.47l-2.99 2.99L4.19.05z"/>
+                <path d="M3.18 23.76c.31.17.66.24 1.01.19l12.89-7.42-2.99-3-10.91 10.23zM.14 1.96C.05 2.22 0 2.51 0 2.84v18.32c0 .33.06.62.16.87l.09.08 10.26-10.26v-.24L.23 1.87l-.09.09zM20.96 8.58l-2.94-1.7-3.35 3.35 3.35 3.35 2.97-1.71c.85-.49.85-1.29-.03-1.29zM4.19.05L17.08 7.47l-2.99 2.99L4.19.05z" />
               </svg>
               Get on Google Play
             </motion.button>
@@ -873,10 +868,8 @@ const Footer: React.FC = () => (
         {/* Brand */}
         <div className="md:col-span-2">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/30">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+            <div className="w-9 h-9 flex items-center justify-center drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">
+              <Image src="/LOGO2.png" alt="DEALonSEAL Logo" width={36} height={36} className="object-contain" />
             </div>
             <span className="text-xl font-bold">
               DEAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">on</span>SEAL
