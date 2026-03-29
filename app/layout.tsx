@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Hero Odyssey – Lighting Up The Future",
   description:
     "An award-winning animated hero page featuring WebGL lightning shaders, framer-motion animations, and interactive hue controls. Built with Next.js, Tailwind CSS, and shadcn/ui.",
+  icons: {
+    icon: "/LOGO2.png",
+    shortcut: "/LOGO2.png",
+    apple: "/LOGO2.png",
+  },
 };
 
 export default function RootLayout({

@@ -297,26 +297,7 @@ const HeroSection: React.FC = () => {
           </button>
         </motion.div>
 
-        {/* Stats Row */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="flex gap-8 sm:gap-16 text-center pb-2"
-        >
-          {[
-            { label: "Deals Sealed", value: 50000, suffix: "+" },
-            { label: "Users Trusted", value: 12000, suffix: "+" },
-            { label: "Cities Active", value: 28, suffix: "" },
-          ].map(stat => (
-            <div key={stat.label}>
-              <div className="text-2xl sm:text-3xl font-bold text-white">
-                <Counter end={stat.value} suffix={stat.suffix} />
-              </div>
-              <div className="text-xs sm:text-sm text-white/40 mt-1">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
+
       </div>
 
     </section>
