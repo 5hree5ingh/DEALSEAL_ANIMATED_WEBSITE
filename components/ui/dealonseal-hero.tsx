@@ -175,18 +175,18 @@ const HeroSection: React.FC = () => {
             className="flex items-center gap-3"
           >
             {/* Logo */}
-            <div className="w-9 h-9 flex items-center justify-center drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">
+            <div className="w-9 h-9 flex items-center justify-center">
               <Image
                 src="/LOGO2.png"
                 alt="DEALonSEAL Logo"
                 width={36}
                 height={36}
-                className="object-contain"
+                className="object-contain brightness-0 invert"
                 priority
               />
             </div>
-            <span className="text-xl font-bold tracking-tight">
-              DEAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">on</span>SEAL
+            <span className="text-xl font-bold tracking-tight text-white">
+              DEAL<span className="text-white">on</span>SEAL
             </span>
           </motion.div>
 
