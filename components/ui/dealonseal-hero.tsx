@@ -177,7 +177,7 @@ const HeroSection: React.FC = () => {
             {/* Logo */}
             <div className="w-9 h-9 flex items-center justify-center">
               <Image
-                src="/LOGO2.png"
+                src="/LOGO2.webp"
                 alt="DEALonSEAL Logo"
                 width={36}
                 height={36}
@@ -596,7 +596,7 @@ const CertificatePreview: React.FC = () => {
                     <div className="text-white font-bold text-lg">DEALonSEAL</div>
                   </div>
                   <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center p-1">
-                    <Image src="/LOGO2.png" alt="DEALonSEAL" width={40} height={40} className="object-contain" />
+                    <Image src="/LOGO2.webp" alt="DEALonSEAL" width={40} height={40} className="object-contain" />
                   </div>
                 </div>
               </div>
@@ -850,7 +850,7 @@ const Footer: React.FC = () => (
         <div className="md:col-span-2">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-9 h-9 flex items-center justify-center drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">
-              <Image src="/LOGO2.png" alt="DEALonSEAL Logo" width={36} height={36} className="object-contain" />
+              <Image src="/LOGO2.webp" alt="DEALonSEAL Logo" width={36} height={36} className="object-contain" />
             </div>
             <span className="text-xl font-bold">
               DEAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">on</span>SEAL
